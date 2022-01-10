@@ -1,0 +1,74 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+		// c++ 컴파일
+        {
+            "label": "g++ build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${fileDirname}\\**.cpp",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+
+				// "-g",
+                // "${fileDirname}\\${fileBasenameNoExtension}.cc",
+                // "-o",
+                // "${fileDirname}\\${fileBasenameNoExtension}.exe;",
+				// "Get-Content",
+                // "input.txt", 
+                // "|",
+                // "./${fileDirname}\\${fileBasenameNoExtension}.exe",
+
+                // "cmd ./${fileDirname}\\${fileBasenameNoExtension}.exe",
+                // "<", 
+                // "input.txt;",
+                // "/bin/rm",
+                // "${fileDirname}\\${fileBasenameNoExtension}.exe"
+
+				// "-g",
+                // "${file}",
+                // "-o",
+                // "${fileBasenameNoExtension};",
+                // "./${fileBasenameNoExtension}",
+                // "<", 
+                // "input.txt;",
+                // "/bin/rm",
+                // "${fileBasenameNoExtension}"
+            ],
+			"problemMatcher": ["$gcc"],
+            "group": "build"
+        },
+		//c컴파일
+        {
+            "label": "gcc build",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "${fileDirname}\\**.cpp",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "group": "build",
+            "problemMatcher": ["$gcc"]
+        },
+		//실행
+        {
+            "type": "shell",
+            "label": "execute input.txt",
+            "command": "cmd",
+            "args": [
+                // "Get-Content",
+                // "input.txt", 
+                // "|",
+                "/C", 
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "group": "test"
+        }
+    ]
+}
